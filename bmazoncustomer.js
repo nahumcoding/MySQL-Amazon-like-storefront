@@ -16,7 +16,7 @@ connection.connect(function(err) {
     displayProducts();
 })
 function displayProducts() {
-    connection.query("SELECT id, product_name, price, quantity FROM bamazon.products WHERE quantity>0", function (err, res) {
+    connection.query("SELECT id, product_name, price, quantity FROM amazon.products WHERE quantity>0", function (err, res) {
         if (err) throw err;
 
 
@@ -55,7 +55,7 @@ function selectID() {
         var id = res.choice;
         var quantity = parseInt(res.quantity);
 
-        connection.query('SELECT product_name, price, quantity, product_sales FROM bamazon.products WHERE ?', {
+        connection.query('SELECT product_name, price, quantity, product_sales FROM amazon.products WHERE ?', {
             id: id
         }, function(err, res) {
             if (err) throw err;
